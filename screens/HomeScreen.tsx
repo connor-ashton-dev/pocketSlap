@@ -11,6 +11,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+//comment
 
 export default function HomeScreen() {
   const [inputVal, setInputVal] = useState('');
