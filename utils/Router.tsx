@@ -5,7 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import Login from '../screens/Login';
 import jwtDecode from 'jwt-decode';
 import { decodedType } from '../types';
-import { userContext } from '../utils/userContext';
+import { userContext } from './userContext';
 
 const Router = () => {
   const { user } = useContext(userContext);

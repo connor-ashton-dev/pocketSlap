@@ -2,6 +2,7 @@ import * as SecureStore from 'expo-secure-store';
 import jwtDecode from 'jwt-decode';
 import { decodedType } from '../types';
 export const SECURE_STORE_KEY = 'pocketSlap-apple-credential';
+export const LIST_SECURE_STORE_KEY = 'pocketSlap-myList';
 
 export const fetchUser = async () => {
   const user = await SecureStore.getItemAsync(SECURE_STORE_KEY);
