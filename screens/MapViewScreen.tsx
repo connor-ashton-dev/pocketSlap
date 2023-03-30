@@ -3,8 +3,18 @@ import React, { useEffect } from 'react';
 import MapView from 'react-native-maps';
 import { useNavigation } from '@react-navigation/native';
 import * as Location from 'expo-location';
+import * as TaskManager from 'expo-task-manager';
 const MapViewScreen = () => {
   const navigation = useNavigation();
+
+  TaskManager.defineTask('MyTask', ({ data: {}, error }: any) => {
+    if (error) {
+      console.log('an error occured');
+      // check `error.message` for more details.
+      return;
+    }
+    console.log('Received new locations');
+  });
 
   const requestPermissions = async () => {
     const { status: foregroundStatus } =

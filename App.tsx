@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+/* import { View, Text } from 'react-native'; */
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ListScreen from './screens/ListScreen';
@@ -10,7 +10,6 @@ import { decodedType } from './types';
 import { fetchUser } from './hooks/useAuth';
 import HomeScreen from './screens/HomeScreen';
 import MapViewScreen from './screens/MapViewScreen';
-import * as TaskManager from 'expo-task-manager';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,13 +20,6 @@ function App() {
     const newUser: decodedType | undefined = await fetchUser();
     setUser(newUser);
     //TODO: FIX TYPESCRIPT
-    TaskManager.defineTask('MyTask', ({ data: {}, error }: any) => {
-      if (error) {
-        // check `error.message` for more details.
-        return;
-      }
-      console.log('Received new locations');
-    });
   };
 
   useEffect(() => {
@@ -43,27 +35,27 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName={'Router'}>
           <Stack.Screen
-            name="Router"
+            name='Router'
             component={Router}
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Login"
+            name='Login'
             component={Login}
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Home"
+            name='Home'
             component={HomeScreen}
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Map"
+            name='Map'
             component={MapViewScreen}
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="List"
+            name='List'
             component={ListScreen}
             options={{
               headerLargeTitle: true,
